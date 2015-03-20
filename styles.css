@@ -1,0 +1,179 @@
+body {
+  counter-reset: watchers;                   /* Set the section counter to 0 */
+}
+
+html {
+  counter-reset: repeater;                   /* Set the section counter to 0 */
+}
+
+body:after {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  content: "# of watchers: " counter(watchers) "" !important; /* Display the counter */
+  background-color: rgba(31, 128, 0, 0.67);
+  padding: 5px 10px;
+  font-size: 16px;
+  line-height: 20px;
+  z-index: 9999;
+}
+
+html:after {
+  position: fixed;
+  bottom: 30px;
+  right: 0;
+  content: "# of all ng-repeats: " counter(repeater) "" !important; /* Display the counter */
+  background-color: rgba(31, 128, 0, 0.67);
+  padding: 5px 10px;
+  font-size: 16px;
+  line-height: 20px;
+  z-index: 9999;
+}
+
+
+
+
+[ng-repeat],
+[ng-click],
+[ng-hide],
+[ng-show],
+[ng-class],
+[ng-src],
+[ng-href],
+.ng-binding {
+  position: relative;
+}
+
+[ng-repeat]:after,
+[ng-click]:after,
+[ng-hide]:after,
+[ng-show]:after,
+[ng-class]:after,
+[ng-src]:after,
+[ng-href]:after,
+.ng-binding:after {
+  font-size: 12px;
+  font-family: sans-serif !important;
+  font-weight: normal;
+  line-height: 16px;
+  text-shadow: 0 0 3px #FFFFFF;
+  padding: 5px;
+  border-radius: 10px;
+  margin-bottom: 2px;
+  position: absolute;
+  top: 0;
+  left:0;
+  bottom: 0;
+  right: 0;
+  display: block !important;
+  pointer-events:none;
+  overflow: hidden;
+  text-decoration: none;
+  z-index: 9999;
+}
+
+
+[ng-repeat]:before,
+[ng-click]:before,
+[ng-hide]:before,
+[ng-show]:before,
+[ng-class]:before,
+[ng-src]:before,
+[ng-href]:before,
+.ng-binding:before {
+  content:counter(watchers) !important;
+  color: white;
+  right:0;
+  top:0;
+  position: absolute;
+  font-size: 12px !important;
+  line-height: 25px !important;
+  font-family: sans-serif !important;
+  padding: 0;
+  margin: 0 auto;
+  text-align: center;
+  min-width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #000000;
+  border: 1px solid white;
+  display: block !important;
+  pointer-events:none;
+  text-decoration: none;
+  z-index: 99999;
+}
+
+
+
+
+.ng-binding:after {
+  counter-increment: watchers;               /* Increment the section counter*/
+  content: "ng-binding"!important; /* Display the counter */
+  background-color: rgba(0, 7, 255, 0.14);
+  border: 1px dashed #0013ca;
+  color: #1000dc;
+}
+
+[ng-hide]:after {
+  counter-increment: watchers;               /* Increment the section counter*/
+  content: "ng-hide"!important; /* Display the counter */
+  background-color: rgba(0, 7, 255, 0.14);
+  border: 1px dashed #0013ca;
+  color: #1000dc;
+}
+
+[ng-show]:after {
+  counter-increment: watchers;               /* Increment the section counter*/
+  content: "ng-show"!important; /* Display the counter */
+  background-color: rgba(0, 7, 255, 0.14);
+  border: 1px dashed #0013ca;
+  color: #1000dc;
+}
+
+[ng-class]:after {
+  counter-increment: watchers;               /* Increment the section counter*/
+  content: "ng-class"!important; /* Display the counter */
+  border: 1px dashed #0013ca;
+  color: #1000dc;
+}
+
+[ng-src]:after {
+  counter-increment: watchers;               /* Increment the section counter*/
+  content: "ng-src"!important; /* Display the counter */
+  border: 1px dashed #0013ca;
+  color: #1000dc;
+}
+
+[ng-href]:after {
+  counter-increment: watchers;               /* Increment the section counter*/
+  content: "ng-href"!important; /* Display the counter */
+  border: 1px dashed #0013ca;
+  color: #1000dc;
+}
+
+[ng-model], [ng-change] {
+  counter-increment: watchers;               /* Increment the section counter*/
+  border: 2px dashed #0013ca !important;
+}
+
+
+[ng-repeat]:after {
+  counter-increment: repeater;               /* Increment the section counter*/
+  content: "ng-repeat: " attr(ng-repeat) !important; /* Display the counter */
+  background-color: rgba(255, 0, 5, 0.15) !important;
+  border: 1px dashed #ca0006;
+  color: #dc0012;
+}
+
+[ng-repeat]:first-of-type:before {
+  counter-increment: watchers;               /* Increment the section counter*/
+}
+
+
+[ng-click]:after {
+  counter-increment: watchers;               /* Increment the section counter*/
+  content: "ng-click" !important; /* Display the counter */
+  background-color: rgba(0, 255, 142, 0.15) !important;
+  border: 1px dashed #00ca0b;
+  color: #001d04;
+}
